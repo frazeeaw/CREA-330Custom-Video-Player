@@ -13,7 +13,7 @@ video.addEventListener("timeupdate", updateProgress);
 
 play.addEventListener("click", toggleVideoStatus);
 stop.addEventListener("click", stopVideo);
-progress.addEventListener('input', setVideoProgress);
+progress.addEventListener("input", setVideoProgress);
 
 // Handlers
 // Play and Pause Video
@@ -63,14 +63,13 @@ function updateProgress() {
   timestamp.innerHTML = `${minutes}:${seconds}`;
 }
 
- // Set Video Timestamp to Progress
- function setVideoProgress() {
-    // Compute the location of the video based on the progress value
-    const location = (Number(progress.value) * video.duration) / 100;
+// Set Video Timestamp to Progress
+function setVideoProgress() {
+  // Compute the location of the video based on the progress value
+  const location = (Number(progress.value) * video.duration) / 100;
 
-    // Sync the video's current time to the progress bar's value
-    video.currentTime = location;
+  // Sync the video's current time to the progress bar's value
+  video.currentTime = location;
 
-    // The line above triggers a `timeupdate` event which will invoke the `updateProgress` function
-  }
-
+  // The line above triggers a `timeupdate` event which will invoke the `updateProgress` function
+}
